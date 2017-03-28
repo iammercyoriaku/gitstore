@@ -15,6 +15,12 @@ try{
 	echo $e->getMessage();
 }*/
 
+
+
+if(array_key_exists('save', $_POST)){
+	print_r($_FILES);
+}
+
 ?>
 
 <form id="register" method="POST" enctype="multipart/form-data">
