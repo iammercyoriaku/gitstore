@@ -15,12 +15,49 @@ try{
 	echo $e->getMessage();
 }*/
 
-
+define("MAX_FILE_SIZE", "2097152");
 
 if(array_key_exists('save', $_POST)){
-	print_r($_FILES);
+	$errors = [];
+	#BE SURE A FILE IS SELECTED
+	if(empty($_FILES['pic']['name'])){
+		$errors['pic'] = "please choose a file";
+	}
+	
+
+# check file size...
+if($_FILES['pic']['size'] > MAX_FILE_SIZE){
+	$errors['pic'] = "file size exceeds maximum. maximum: ". MAX_FILE_SIZE;
 }
 
+//check extension...
+if(!in_array($_FILES['pic']['type'], $ext)){
+	errors[] = "invalid file type";
+}
+
+#generate random number to append
+$rnd = rand(0000000000, 999999999);
+
+#strip filename for spaces
+$strip_name = str_replace(" ", "_", $_FILES['pic']['name']);
+
+$filename = $rnd.$strip_name;
+$destination = 'uploads/'.$filename;
+
+if(!move_uploaded_files($_FILES['pic']['tmp_name'], $destination)){
+	$errors[] = "file uploaded failed";
+}
+
+if(empty($errors)){
+	echo "done";
+
+} else {
+	foreach($errors as $err){
+		echo $err.'<br/>';
+	}
+  }
+
+}
 ?>
 
 <form id="register" method="POST" enctype="multipart/form-data">
