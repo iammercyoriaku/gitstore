@@ -1,4 +1,4 @@
-<?php //test.php sandbox
+<?php 
 
 define('DBNAME', 'onlinestore');
 define('DBUSER', 'root');
