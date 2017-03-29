@@ -8,6 +8,25 @@ $page_title = "Register";
 
 include'includes/header.php';
 
+if(array_key_exists('register', $_POST)){
+	#cache errors
+	$errors = [];
+
+	#validate first name
+
+	if(empty($_POST['fname'])){
+		$errors[] = "please enter a first name";
+	}
+
+	if(empty($errors)){
+		//do the database stuff
+	} else {
+		foreach($errors as $err){
+			echo $err;
+		}
+	}
+}
+
 ?>
 
 
