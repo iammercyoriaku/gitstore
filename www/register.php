@@ -15,7 +15,23 @@ if(array_key_exists('register', $_POST)){
 	#validate first name
 
 	if(empty($_POST['fname'])){
-		$errors[] = "please enter a first name";
+		$errors[] = "Please enter a First Name";
+	}
+
+	if(empty($_POST['lname'])){
+		$errors[] = "Please enter a Last Name";
+	}
+
+	if(empty($_POST['email'])){
+		$errors[] = "Please enter an Email Address ";
+	}
+
+	if(empty($_POST['password'])){
+		$errors[] = "Please enter a Password";
+	}
+
+	if(empty($_POST['pword'])){
+		$errors[] = "Please cofirm password";
 	}
 
 	if(empty($errors)){
