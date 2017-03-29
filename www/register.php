@@ -16,8 +16,9 @@ if(array_key_exists('register', $_POST)){
 
 	if(empty($_POST['fname'])){
 		$errors[] = "Please enter a First Name";
-	}
 
+	}
+echo ".<br/>.";
 	if(empty($_POST['lname'])){
 		$errors[] = "Please enter a Last Name";
 	}
@@ -30,8 +31,8 @@ if(array_key_exists('register', $_POST)){
 		$errors[] = "Please enter a Password";
 	}
 
-	if(empty($_POST['pword'])){
-		$errors[] = "Please cofirm password";
+	if(empty($_POST['pword']) || ($_POST['pword']) != $_POST['password'])){
+		$errors[] = "Password doesn't match";
 	}
 
 	if(empty($errors)){
