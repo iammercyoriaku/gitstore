@@ -41,7 +41,7 @@ include'includes/header.php';
 
 <?php
 
-#include footer...
+#including the footer...
 
 include 'includes/footer.php';
 
