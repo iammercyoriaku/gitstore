@@ -1,6 +1,6 @@
 <?php 
 
-define('DBNAME', 'onlinestore');
+define('DBNAME', 'bookstore');
 define('DBUSER', 'root');
 define('DBPASS', 'ilovecupcakes');
 

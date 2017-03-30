@@ -5,7 +5,7 @@
 $page_title = "Register";
 
 #include db connection...
-include'includes/db.php'
+include'includes/db.php';
 #include header...
 include'includes/header.php';
 
@@ -32,8 +32,8 @@ echo ".<br/>.";
 		$errors['password'] = "Please enter a Password";
 	}
 
-	if(empty($_POST['password']) != $_POST['pword']){
-		$errors['pword'] = "Password doesn't match";
+	if($_POST['password'] != $_POST['pword']){
+		$errors['pword'] = "Password does not match";
 	}
 
 	if(empty($errors)){
@@ -47,15 +47,15 @@ echo ".<br/>.";
 	$hash = password_hash($clean['password'], PASSWORD_BCRYPT);
 
 	#insert data
-	$stmt = $conn->prepare("INSERT INTO admn(firstname, lastname, email, hash) VALUES(:fn, :ln, :e, :h)");
+	$stmt = $conn->prepare("INSERT INTO admin(firstname, lastname, email, hash) VALUES(:fn, :ln, :e, :h)");
 
 	#blind params...
 	$data = [
 
-		':fn' => $clean['fname'],
-		':ln' => $clean['lname'],
-		':e' => $client['email'],
-		':h' => $clean['password']
+		':fn' => $input['fname'],
+		':ln' => $input['lname'],
+		':e' => $input['email'],
+		':h' => $hash
 	
 	];
 
