@@ -4,8 +4,9 @@
 
 $page_title = "Register";
 
+#include db connection...
+include'includes/db.php'
 #include header...
-
 include'includes/header.php';
 
 if(array_key_exists('register', $_POST)){
