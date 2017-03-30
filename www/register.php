@@ -42,7 +42,6 @@ echo ".<br/>.";
 		#eliminate unwanted spaces from values in the POST array
 		
 		$clean = array_map('trim', $_POST);
-	}
 
 	#hash the password
 	$hash = password_hash($clean['password'], PASSWORD_BCRYPT);
@@ -59,12 +58,16 @@ echo ".<br/>.";
 		':h' => $clean['password']
 	
 	];
+
+	$stmt->execute($data);
 	/*if(empty($errors)){
 		//do the database stuff
 	} else {
 		foreach($errors as $err){
 			echo $err;
 		}*/
+
+	}	
 }
 
 ?>
