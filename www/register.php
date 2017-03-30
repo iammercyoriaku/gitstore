@@ -8,6 +8,8 @@ $page_title = "Register";
 include'includes/db.php';
 #include header...
 include'includes/header.php';
+#include function...
+include'includes/function.php';
 
 if(array_key_exists('register', $_POST)){
 	#cache errors
