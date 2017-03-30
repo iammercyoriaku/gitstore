@@ -45,6 +45,9 @@ echo ".<br/>.";
 		
 		$clean = array_map('trim', $_POST);
 
+		#register admin...
+		doAdminRegister($conn, $clean);
+
 	#hash the password
 	$hash = password_hash($clean['password'], PASSWORD_BCRYPT);
 
