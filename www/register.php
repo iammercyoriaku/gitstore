@@ -47,6 +47,18 @@ echo ".<br/>.";
 	#hash the password
 	$hash = password_hash($clean['password'], PASSWORD_BCRYPT);
 
+	#insert data
+	$stmt = $conn->prepare("INSERT INTO admn(firstname, lastname, email, hash) VALUES(:fn, :ln, :e, :h)");
+
+	#blind params...
+	$data = [
+
+		':fn' => $clean['fname'],
+		':ln' => $clean['lname'],
+		':e' => $client['email'],
+		':h' => $clean['password']
+	
+	];
 	/*if(empty($errors)){
 		//do the database stuff
 	} else {
