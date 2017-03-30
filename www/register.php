@@ -36,6 +36,17 @@ echo ".<br/>.";
 		$errors['pword'] = "Password doesn't match";
 	}
 
+	if(empty($errors)){
+		//do databse stuff
+
+		#eliminate unwanted spaces from values in the POST array
+		
+		$clean = array_map('trim', $_POST);
+	}
+
+	#hash the password
+	$hash = password_hash($clean['password'], PASSWORD_BCRYPT);
+
 	/*if(empty($errors)){
 		//do the database stuff
 	} else {
